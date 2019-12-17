@@ -43,7 +43,7 @@ class App extends Component {
     console.log('name', name)
 
     return (
-      <div>
+      <div className="container" id="app">
         {!formSubmitted && <form className="contact-form" onSubmit={this.sendEmail}>
           <input type="hidden" name="contact_number" />
           <label>Name</label>
