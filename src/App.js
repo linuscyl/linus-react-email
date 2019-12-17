@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './App.css';
 
 import emailjs from 'emailjs-com';
+import { Helmet } from "react-helmet";
 
 class App extends Component {
 
@@ -21,7 +22,7 @@ class App extends Component {
 
     console.log('e', e)
 
-    emailjs.sendForm('gmail', 'template_BTGyrWBh', e.target, 'user_kyS15aCe2pPA6hm9Od0N1')
+    emailjs.sendForm('gmail', 'template_5rzzDOq6', e.target, 'user_QRaRBGyPTxoDQjsvjFLWQ')
       .then((result) => {
         console.log(result.text);
         this.setState({ formSubmitted: true })
@@ -44,6 +45,10 @@ class App extends Component {
 
     return (
       <div className="container" id="app">
+        <Helmet>
+          <title>Laura HBD</title>
+          <meta name="Laura HBD" content="This is a webste created for Laura Birthday." />
+        </Helmet>
         {!formSubmitted && <form className="contact-form" onSubmit={this.sendEmail}>
           <input type="hidden" name="contact_number" />
           <label>Name</label>
