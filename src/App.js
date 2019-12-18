@@ -56,7 +56,7 @@ class App extends Component {
 
   render() {
 
-    const { formSubmitted, name, restaurant, readyToGo, hour } = this.state
+    const { formSubmitted, name, restaurant, hour } = this.state
 
     return (
       <div className="container" id="app">
