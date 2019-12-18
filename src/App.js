@@ -16,6 +16,7 @@ class App extends Component {
       name: '',
       readyToGo: false,
       restaurant: null,
+      hour: new Date().getHours(),
     }
 
     this.sendEmail = this.sendEmail.bind(this);
@@ -55,7 +56,7 @@ class App extends Component {
 
   render() {
 
-    const { formSubmitted, name, restaurant, readyToGo } = this.state
+    const { formSubmitted, name, restaurant, readyToGo, hour } = this.state
     console.log('name', name)
     console.log('readyToGo', readyToGo)
 
@@ -67,12 +68,13 @@ class App extends Component {
         </Helmet>
         <div className="formBody" style={{ marginTop: "20px", padding: "20px", background: "rgba(255, 255, 255, 0.5)" }}>
           {!formSubmitted && <form className="contact-form" onSubmit={this.sendEmail}>
+            <input type="hidden" name="time" value={hour} />
             <label>Name</label>
             <br />
             <input type="text" name="name" value={name} onChange={this.handleChange} />
             <br />
             <br />
-            <label>選擇享用早餐的餐廳</label>
+            <label>選擇享用{hour < 12 ? "早餐" : "午餐"}的餐廳</label>
             <br />
             <select name="restaurant">
               <option value="mcdonald">M記</option>
