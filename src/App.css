@@ -1,0 +1,8 @@
+    p, label{
+      padding-left: 20px;
+      padding-right: 20px;
+      background: rgba(0, 0, 0, 0.1);
+      /* color: #fff; */
+      font-size: 18px;
+      font-family: verdana, sans-serif;
+    }
