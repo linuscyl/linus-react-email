@@ -47,6 +47,12 @@ class App extends Component {
     })
   }
 
+  handleCheckboxChange = (e) => {
+    this.setState({
+      readyToGo: e.target.checked
+    })
+  }
+
   render() {
 
     const { formSubmitted, name, restaurant, readyToGo } = this.state
@@ -57,7 +63,7 @@ class App extends Component {
       <div className="container" id="app">
         <Helmet>
           <title>Laura HBD</title>
-          <meta name="Laura HBD" content="This is a webste created for Laura Birthday." />
+          <meta name="Laura HBD" content="This is a webste created for celebrating Laura Birthday." />
         </Helmet>
         <div className="formBody" style={{ marginTop: "20px", padding: "20px", background: "rgba(255, 255, 255, 0.5)" }}>
           {!formSubmitted && <form className="contact-form" onSubmit={this.sendEmail}>
@@ -80,8 +86,8 @@ class App extends Component {
             <br />
             <textarea name="message" />
             <br />
-            <input type="checkbox" name="readyToGo" onChange={this.handleChange} checked={readyToGo} />
-            <span>  <b>我已準備出發</b></span>
+            <input type="checkbox" name="readyToGo" onClick={this.handleCheckboxChange} />
+            <span><b>我已準備出發</b></span>
             <br />
             <br />
             <input type="submit" value="發送" />
