@@ -57,8 +57,6 @@ class App extends Component {
   render() {
 
     const { formSubmitted, name, restaurant, readyToGo, hour } = this.state
-    console.log('name', name)
-    console.log('readyToGo', readyToGo)
 
     return (
       <div className="container" id="app">
@@ -68,7 +66,7 @@ class App extends Component {
         </Helmet>
         <div className="formBody" style={{ marginTop: "20px", padding: "20px", background: "rgba(255, 255, 255, 0.5)" }}>
           {!formSubmitted && <form className="contact-form" onSubmit={this.sendEmail}>
-            <input type="hidden" name="time" value={hour} />
+            <input type="hidden" name="meal" value={hour < 12 ? "早餐" : "午餐"} />
             <label>Name</label>
             <br />
             <input type="text" name="name" value={name} onChange={this.handleChange} />
@@ -76,11 +74,11 @@ class App extends Component {
             <br />
             <label>選擇享用{hour < 12 ? "早餐" : "午餐"}的餐廳</label>
             <br />
-            <select name="restaurant">
-              <option value="mcdonald">M記</option>
-              <option value="taihang">太興</option>
-              <option value="restauranta">Restaurant A</option>
-              <option value="restaurantb">restaurant B</option>
+            <select name="restaurant" onChange={this.handleChange}>
+              <option value="M記">M記</option>
+              <option value="太興">太興</option>
+              <option value="餐廳A">餐廳A</option>
+              <option value="餐廳B">餐廳B</option>
             </select>
             <br />
             <br />
@@ -95,7 +93,11 @@ class App extends Component {
             <input type="submit" value="發送" />
           </form>
           }
-          {formSubmitted && <Result name={name} restaurant={restaurant} />}
+          {formSubmitted &&
+            <div>
+              <Result name={name} restaurant={restaurant} />
+              {/* <button onClick={() => { this.setState({ formSubmitted: false }) }}>按此返回</button> */}
+            </div>}
           <br />
           <br />
           <h6>求助: 60944209</h6>

@@ -4,6 +4,7 @@ class Result extends Component {
 
   render() {
     console.log('this.props.name', this.props.name)
+    console.log('this.props.restaurant', this.props.restaurant)
 
     return (
       <div>
