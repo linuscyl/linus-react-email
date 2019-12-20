@@ -1,8 +1,15 @@
-    p, label{
-      padding-left: 20px;
-      padding-right: 20px;
-      background: rgba(0, 0, 0, 0.1);
-      /* color: #fff; */
-      font-size: 18px;
-      font-family: verdana, sans-serif;
-    }
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
+
+
+.formBody p, label{
+  padding-left: 20px;
+  padding-right: 20px;
+  background: rgba(0, 0, 0, 0.1);
+  /* color: #fff; */
+  font-size: 18px;
+}
+
+.intro {
+      font-family: 'Lilita One', cursive;
+      font-size: 20px
+}

@@ -25,7 +25,7 @@ class App extends Component {
   sendEmail(e) {
 
     if (!this.state.readyToGo) {
-      alert("整裝待發好再按發送!")
+      alert("請勾選我已準備出發!")
     } else {
       e.preventDefault();
 
@@ -64,45 +64,55 @@ class App extends Component {
           <title>Laura HBD</title>
           <meta name="Laura HBD" content="This is a webste created for celebrating Laura Birthday." />
         </Helmet>
+
+        {!formSubmitted && <div className="intro" style={{ background: "white", padding: "10px", margin: "20px" }}>
+          <p>貼心的逸朗已準備豐盛的{hour < 12 ? "早餐" : "午餐"}，為你在一連串的任務前補充體力。<br />
+            <b>梳洗完畢</b>後填妥表格，並即前往所選餐廳尋找<span style={{ color: "orange" }}>目標人物</span>。</p>
+        </div>
+        }
+
         <div className="formBody" style={{ marginTop: "20px", padding: "20px", background: "rgba(255, 255, 255, 0.5)" }}>
-          {!formSubmitted && <form className="contact-form" onSubmit={this.sendEmail}>
-            <input type="hidden" name="meal" value={hour < 12 ? "早餐" : "午餐"} />
-            <label>Name</label>
-            <br />
-            <input type="text" id="nameId" name="name" value={name} onChange={this.handleChange} />
-            <br />
-            <br />
-            <label>選擇享用{hour < 12 ? "早餐" : "午餐"}的餐廳</label>
-            <br />
-            <select name="restaurant" onChange={this.handleChange} id="restaurantId">
-              <option value="M記">M記</option>
-              <option value="太興">太興</option>
-              <option value="餐廳A">餐廳A</option>
-              <option value="餐廳B">餐廳B</option>
-            </select>
-            <br />
-            <br />
-            <label>備註</label>
-            <br />
-            <textarea name="message" style={{ minWidth: "80%" }} />
-            <br />
-            <input type="checkbox" name="readyToGo" onClick={this.handleCheckboxChange} />
-            <span><b>我已準備出發</b></span>
-            <br />
-            <br />
-            <input type="submit" value="發送" />
-          </form>
+          {!formSubmitted &&
+            <form className="contact-form" onSubmit={this.sendEmail}>
+              <input type="hidden" name="meal" value={hour < 12 ? "早餐" : "午餐"} />
+              <label>Name</label>
+              <br />
+              <input type="text" id="nameId" name="name" value={name} onChange={this.handleChange} />
+              <br />
+              <br />
+              <label>選擇享用{hour < 12 ? "早餐" : "午餐"}的餐廳</label>
+              <br />
+              <select name="restaurant" onChange={this.handleChange} id="restaurantId">
+                <option value="M記">M記</option>
+                <option value="太興">太興</option>
+                <option value="餐廳A">餐廳A</option>
+                <option value="餐廳B">餐廳B</option>
+              </select>
+              <br />
+              <br />
+              <label>備註</label>
+              <br />
+              <textarea name="message" style={{ minWidth: "80%" }} />
+              <br />
+              <input type="checkbox" name="readyToGo" onClick={this.handleCheckboxChange} />
+              <span><b>我已準備出發</b></span>
+              <br />
+              <br />
+              <input type="submit" value="發送" />
+            </form>
           }
+
           {formSubmitted &&
             <div>
               <Result name={name} restaurant={restaurant} />
               {/* <button onClick={() => { this.setState({ formSubmitted: false }) }}>按此返回</button> */}
             </div>}
+
           <br />
           <br />
           <h6>求助: 60944209</h6>
         </div>
-      </div>
+      </div >
     );
   }
 }
