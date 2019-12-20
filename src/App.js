@@ -69,12 +69,12 @@ class App extends Component {
             <input type="hidden" name="meal" value={hour < 12 ? "早餐" : "午餐"} />
             <label>Name</label>
             <br />
-            <input type="text" name="name" value={name} onChange={this.handleChange} />
+            <input type="text" id="nameId" name="name" value={name} onChange={this.handleChange} />
             <br />
             <br />
             <label>選擇享用{hour < 12 ? "早餐" : "午餐"}的餐廳</label>
             <br />
-            <select name="restaurant" onChange={this.handleChange}>
+            <select name="restaurant" onChange={this.handleChange} id="restaurantId">
               <option value="M記">M記</option>
               <option value="太興">太興</option>
               <option value="餐廳A">餐廳A</option>
@@ -84,7 +84,7 @@ class App extends Component {
             <br />
             <label>備註</label>
             <br />
-            <textarea name="message" />
+            <textarea name="message" style={{ minWidth: "80%" }} />
             <br />
             <input type="checkbox" name="readyToGo" onClick={this.handleCheckboxChange} />
             <span><b>我已準備出發</b></span>
