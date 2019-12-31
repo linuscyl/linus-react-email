@@ -67,7 +67,7 @@ class App extends Component {
 
         {!formSubmitted && <div className="intro" style={{ background: "white", padding: "10px", margin: "20px" }}>
           <p>貼心的逸朗已準備豐盛的{hour < 12 ? "早餐" : "午餐"}，為你在一連串的任務前補充體力。<br />
-            <b>梳洗完畢</b>後填妥表格，並即前往所選餐廳尋找<span style={{ color: "orange" }}>目標人物</span>。</p>
+            <b>梳洗完畢</b>後填妥表格，並即前往所選餐廳尋找<b><span style={{ color: "orange" }}>目標人物</span></b>。</p>
         </div>
         }
 
@@ -85,8 +85,8 @@ class App extends Component {
               <select name="restaurant" onChange={this.handleChange} id="restaurantId">
                 <option value="M記">M記</option>
                 <option value="太興">太興</option>
-                <option value="餐廳A">餐廳A</option>
-                <option value="餐廳B">餐廳B</option>
+                <option value="大快活">大快活</option>
+                <option value="譚仔">譚仔</option>
               </select>
               <br />
               <br />
