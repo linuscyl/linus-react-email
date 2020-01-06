@@ -15,8 +15,9 @@ class App extends Component {
       formSubmitted: false,
       name: '',
       readyToGo: false,
-      restaurant: null,
+      restaurant: '',
       hour: new Date().getHours(),
+      message: '',
     }
 
     this.sendEmail = this.sendEmail.bind(this);
@@ -26,7 +27,10 @@ class App extends Component {
 
     if (!this.state.readyToGo) {
       alert("請勾選我已準備出發!")
-    } else {
+    } else if (this.state.restaurant === '') {
+      alert("請選擇餐廳!")
+    }
+    else {
       e.preventDefault();
 
       console.log('e', e)
@@ -56,7 +60,7 @@ class App extends Component {
 
   render() {
 
-    const { formSubmitted, name, restaurant, hour } = this.state
+    const { formSubmitted, name, restaurant, hour, message } = this.state
 
     return (
       <div className="container" id="app">
@@ -75,14 +79,12 @@ class App extends Component {
           {!formSubmitted &&
             <form className="contact-form" onSubmit={this.sendEmail}>
               <input type="hidden" name="meal" value={hour < 12 ? "早餐" : "午餐"} />
-              <label>Name</label>
-              <br />
-              <input type="text" id="nameId" name="name" value={name} onChange={this.handleChange} />
-              <br />
-              <br />
+              {/* <label>Name</label>
+              <input type="text" id="nameId" name="name" value={name} onChange={this.handleChange} /> */}
               <label>選擇享用{hour < 12 ? "早餐" : "午餐"}的餐廳</label>
               <br />
               <select name="restaurant" onChange={this.handleChange} id="restaurantId">
+                <option value=''>請選擇</option>
                 <option value="M記">M記</option>
                 <option value="太興">太興</option>
                 <option value="大快活">大快活</option>
@@ -92,7 +94,7 @@ class App extends Component {
               <br />
               <label>備註</label>
               <br />
-              <textarea name="message" style={{ minWidth: "80%" }} />
+              <textarea name="message" style={{ minWidth: "80%" }} value={message} onChange={this.handleChange} />
               <br />
               <input type="checkbox" name="readyToGo" onClick={this.handleCheckboxChange} />
               <span><b>我已準備出發</b></span>
@@ -104,7 +106,7 @@ class App extends Component {
 
           {formSubmitted &&
             <div>
-              <Result name={name} restaurant={restaurant} />
+              <Result name={name} restaurant={restaurant} message={message} />
               {/* <button onClick={() => { this.setState({ formSubmitted: false }) }}>按此返回</button> */}
             </div>}
 
