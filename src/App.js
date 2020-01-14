@@ -4,7 +4,7 @@ import './App.css';
 import emailjs from 'emailjs-com';
 import { Helmet } from "react-helmet";
 
-import Result from './Result';
+import Result from './Result/Result';
 
 class App extends Component {
 
