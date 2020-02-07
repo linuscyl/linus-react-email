@@ -21,6 +21,8 @@ class Result extends Component {
   }
 
 
+
+
   render() {
     console.log('this.props.name', this.props.name)
     console.log('this.props.message', this.props.message)
@@ -34,35 +36,66 @@ class Result extends Component {
         {this.state.isShowForm &&
           <div>
             <p>Your form is submitted! <br />
-              <b><span style={{ color: "orange", fontSize: "20px" }}>目標人物</span></b>已於<strong>{this.props.restaurant}</strong>恭侯，請於15mins內到達{this.props.restaurant}</p>
-            <p>備註: <br />{this.props.message}</p>
+              大廚們正落力買菜為你下廚，請<span style={{ color: "orange", fontSize: "20px" }}>耐心等候</span> =] </p>
+
+            {/* <p><b><span style={{ color: "orange", fontSize: "20px" }}>目標人物</span></b>已於<strong>{this.props.restaurant}</strong>恭侯，請於15mins內到達{this.props.restaurant}</p> */}
+
+            <p>你的備註: <br />{this.props.message}</p>
             <hr />
-            <h3>溫馨提示: </h3>
-            <div className="row">
-              <div className="col-4">
+
+            {/* <h3>溫馨提示: </h3> */}
+            {/* <div className="col-4">
                 <input type="checkbox" /> 防曬 <br />
                 <input type="checkbox" /> 鎖匙 <br />
                 <input type="checkbox" /> 身份證 <br />
                 <input type="checkbox" /> 錢 <br />
                 <input type="checkbox" /> 纸巾 <br />
-              </div>
-              <div className="col-8 Carosel">
-                {/* <Loader type="Oval" color="#ffc0cb" width="100%" style={{ align: "center" }} /> */}
-              </div>
+              </div> */}
 
+
+            <div className="row">
               <div className="Carosel">
                 <Carousel autoPlay={true} infiniteLoop={true} interval={1500} width={"100%"}>
+                  {/* {this.loopCarosel()} */}
                   <div>
-                    <img src={require('./aaaatest.jpg')} alt="error" />
-                    <p className="legend">Legend 1</p>
+                    <img src={require('./photo1.jpg')} alt="error" />
+                    <p className="legend">因為Yuna仲未比相我，只好ig偷圖... </p>
                   </div>
                   <div>
-                    <img src={require('./aaaatest.jpg')} alt="error" />
-                    <p className="legend">Legend 2</p>
+                    <img src={require('./photo2.jpg')} alt="error" />
                   </div>
                   <div>
-                    <img src={require('./aaaatest.jpg')} alt="error" />
-                    <p className="legend">Legend 3</p>
+                    <img src={require('./photo3.jpg')} alt="error" />
+                  </div>
+                  {/* <div>
+                    <img src={require('./photo4.jpg')} alt="error" />
+                  </div> */}
+                  {/* <div>
+                    <img src={require('./photo5.jpg')} alt="error" />
+                  </div> */}
+                  <div>
+                    <img src={require('./photo6.jpg')} alt="error" />
+                  </div>
+                  <div>
+                    <img src={require('./photo7.jpg')} alt="error" />
+                  </div>
+                  {/* <div>
+                    <img src={require('./photo8.jpg')} alt="error" />
+                  </div> */}
+                  <div>
+                    <img src={require('./photo9.jpg')} alt="error" />
+                  </div>
+                  <div>
+                    <img src={require('./photo10.jpg')} alt="error" />
+                  </div>
+                  <div>
+                    <img src={require('./photo11.jpg')} alt="error" />
+                  </div>
+                  <div>
+                    <img src={require('./photo12.jpg')} alt="error" />
+                  </div>
+                  <div>
+                    <img src={require('./photo13.jpg')} alt="error" />
                   </div>
                 </Carousel>
               </div>
